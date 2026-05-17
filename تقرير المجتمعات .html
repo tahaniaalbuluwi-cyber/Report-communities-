@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>ذا ستيج · التقرير الشامل</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --bg-card: #0E0E0E;
+    --bg-elev: #161616;
+    --ink: #F5F1E8;
+    --ink-mute: #ADA89D;
+    --ink-dim: #6F6A60;
+    --gold: #C9A961;
+    --gold-bright: #E8C77A;
+    --gold-dim: #6B5530;
+    --line: #2A2A2A;
+    --line-light: #3A3A3A;
+    --danger: #C0392B;
+    --warn: #D4A017;
+    --good: #5A8C5A;
+    --info: #6B8DB0;
+    --font: 'IBM Plex Sans Arabic', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    background: #000000 !important;
+    background-color: #000000 !important;
+  }
+  body {
+    background: #000000;
+    color: var(--ink);
+    font-family: var(--font);
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem 4rem;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .hero-top .dot { color: var(--gold-dim); margin: 0 0.5em; }
+  .hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 3rem 0;
+  }
+  .hero-eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-right: 3rem;
+    position: relative;
+    font-weight: 500;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-size: clamp(48px, 10vw, 140px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .hero-subtitle {
+    font-size: clamp(18px, 2vw, 26px);
+    color: var(--ink-mute);
+    max-width: 700px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .hero-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+  .hero-stat .label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-dim);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .hero-stat .value {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-stat .meta {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 300;
+  }
+
+  /* ── NAV ── */
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  .nav-bar a {
+    font-size: 13px;
+    color: var(--ink-mute);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .nav-bar a:hover {
+    color: var(--gold);
+    background: rgba(201, 169, 97, 0.08);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 5rem 4rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+  }
+  .section-eyebrow .num {
+    color: var(--gold-dim);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .section-title {
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .section-title em {
+    color: var(--gold);
+    font-style: normal;
+  }
+  .section-lede {
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--ink-mute);
+    max-width: 720px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* ── CHART CONTAINER ── */
+  .chart-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .chart-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .chart-caption {
+    font-size: 13px;
+    color: var(--ink-dim);
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ── HORIZONTAL BAR CHART (for top presenters) ── */
+  .hbar-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 60px;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .hbar-row:last-child { border-bottom: none; }
+  .hbar-row .hbar-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+  }
+  .hbar-row .hbar-track {
+    background: rgba(201, 169, 97, 0.06);
+    border-radius: 4px;
+    height: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hbar-row .hbar-fill {
+    height: 100%;
+    background: linear-gradient(270deg, var(--gold) 0%, var(--gold-bright) 100%);
+    border-radius: 4px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: var(--delay, 0s);
+  }
+  .hbar-row.show .hbar-fill { width: var(--width); }
+  .hbar-row .hbar-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    text-align: left;
+  }
+
+  /* ── VERTICAL BAR CHART ── */
+  .vbar-chart {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+    height: 320px;
+    padding: 1rem 0 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .vbar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+    min-width: 0;
+  }
+  .vbar-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 6px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    transition-delay: var(--delay, 0s);
+  }
+  .vbar-col.show .vbar-value { opacity: 1; }
+  .vbar-bar {
+    width: 100%;
+    max-width: 70px;
+    background: linear-gradient(0deg, var(--gold-dim) 0%, var(--gold) 100%);
+    border-radius: 4px 4px 0 0;
+    height: 0;
+    transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: var(--delay, 0s);
+  }
+  .vbar-col.show .vbar-bar { height: var(--height); }
+  .vbar-col.peak .vbar-bar { background: linear-gradient(0deg, var(--gold) 0%, var(--gold-bright) 100%); }
+  .vbar-col.muted .vbar-bar { background: linear-gradient(0deg, #3a2d18 0%, var(--gold-dim) 100%); }
+  .vbar-col.danger .vbar-bar { background: linear-gradient(0deg, #5a1f1f 0%, #b04040 100%); }
+  .vbar-label {
+    font-size: 12px;
+    color: var(--ink-mute);
+    margin-top: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ── LINE CHART (SVG) ── */
+  .line-chart {
+    width: 100%;
+    height: 320px;
+    display: block;
+  }
+  .line-chart .grid-line {
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .line-chart .axis-text {
+    fill: var(--ink-mute);
+    font-size: 12px;
+    font-family: var(--font);
+    font-weight: 500;
+  }
+  .line-chart .line-path {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawLine 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .reveal.visible .line-chart .line-path { animation-play-state: running; }
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+  .line-chart .area-fill {
+    fill: url(#goldGrad);
+    opacity: 0;
+    animation: fadeIn 1.5s ease 0.5s forwards;
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .line-chart .data-point {
+    fill: var(--gold);
+    stroke: var(--bg);
+    stroke-width: 2.5;
+    opacity: 0;
+    animation: popIn 0.4s ease forwards;
+  }
+  .line-chart .data-point.partial {
+    fill: var(--gold-dim);
+  }
+  @keyframes popIn {
+    from { opacity: 0; r: 0; }
+    to { opacity: 1; r: 6; }
+  }
+  .line-chart .data-label {
+    fill: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font);
+    text-anchor: middle;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  /* ── TWO COL ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  /* ── PEAK CARD ── */
+  .peak-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2rem;
+  }
+  .peak-card .label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    font-weight: 600;
+  }
+  .peak-list .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .peak-list .item:last-child { border-bottom: none; }
+  .peak-list .name {
+    font-size: 16px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .peak-list .item:first-child .name { font-size: 19px; font-weight: 700; }
+  .peak-list .item:first-child .name.highlight { color: var(--gold); }
+  .peak-list .num {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink-mute);
+  }
+  .peak-list .item:first-child .num { color: var(--gold); font-size: 22px; }
+
+  /* ── PULLQUOTE ── */
+  .pullquote {
+    border-right: 3px solid var(--gold);
+    padding: 1.75rem 2rem;
+    margin: 3rem 0;
+    background: rgba(201, 169, 97, 0.06);
+    border-radius: 0 6px 6px 0;
+  }
+  .pullquote .text {
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .pullquote .text em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ── STATUS GRID ── */
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .status-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .status-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent, var(--gold));
+  }
+  .status-cell.green { --accent: var(--good); }
+  .status-cell.blue { --accent: var(--info); }
+  .status-cell.amber { --accent: var(--warn); }
+  .status-cell.gray { --accent: var(--ink-dim); }
+  .status-cell .label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .status-cell .num {
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--accent, var(--gold));
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .status-cell .meta {
+    font-size: 13px;
+    color: var(--ink-mute);
+    font-weight: 300;
+  }
+
+  /* ── PRODUCT TABLE ── */
+  .table-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-mute);
+    font-family: var(--font);
+    font-size: 13px;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .filter-btn.active {
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+    font-weight: 600;
+  }
+  .search-box {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-family: var(--font);
+    padding: 0.55rem 1rem;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-right: auto;
+    min-width: 200px;
+  }
+  .search-box:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .search-box::placeholder { color: var(--ink-dim); }
+  
+  .product-table {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: block;
+  }
+  .mobile-cards {
+    min-height: 100px;
+    display: none;
+  }
+  
+  /* On mobile: show cards, hide table */
+  @media (max-width: 900px) {
+    .product-table { display: none !important; }
+    .mobile-cards { display: block !important; }
+  }
+  .table-head {
+    display: grid;
+    grid-template-columns: 2fr repeat(8, 1fr) 1.3fr 1.5fr;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-elev);
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .table-head > *:first-child { text-align: right; }
+  .table-head > *:not(:first-child) { text-align: center; }
+  .table-body {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  .table-body::-webkit-scrollbar { width: 6px; }
+  .table-body::-webkit-scrollbar-track { background: var(--bg-card); }
+  .table-body::-webkit-scrollbar-thumb { background: var(--line-light); border-radius: 3px; }
+  .table-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(8, 1fr) 1.3fr 1.5fr;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .table-row:hover { background: var(--bg-elev); }
+  .table-row .name { font-weight: 500; color: var(--ink); font-size: 14px; }
+  .table-row .cell { text-align: center; font-weight: 500; font-size: 13px; padding: 4px 0; border-radius: 3px; }
+  .table-row .total {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gold);
+    background: rgba(201, 169, 97, 0.1);
+    padding: 6px 8px;
+    border-radius: 3px;
+  }
+  .table-row .status {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 3px;
+  }
+  .status.green { background: rgba(90, 140, 90, 0.18); color: #88BC88; border: 1px solid rgba(90, 140, 90, 0.3); }
+  .status.blue { background: rgba(107, 141, 176, 0.18); color: #9BB6D4; border: 1px solid rgba(107, 141, 176, 0.3); }
+  .status.amber { background: rgba(212, 160, 23, 0.15); color: #E5BD52; border: 1px solid rgba(212, 160, 23, 0.3); }
+  .status.gray { background: rgba(120, 115, 105, 0.18); color: #ADA89D; border: 1px solid rgba(120, 115, 105, 0.3); }
+  .table-row .cell.empty { color: var(--ink-dim); opacity: 0.3; }
+
+  /* ── CONCLUSION ── */
+  .conclusion {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 3rem;
+    margin-top: 3rem;
+  }
+  .conclusion p {
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+  }
+  .conclusion p:last-child { margin-bottom: 0; }
+  .conclusion strong {
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem 4rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    margin-top: 5rem;
+  }
+  footer .mark {
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  footer .meta { color: var(--ink-dim); font-size: 13px; font-weight: 300; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero { padding: 2rem 2rem; }
+    section { padding: 4rem 2rem; }
+    .nav-bar { padding: 0.75rem 1rem; gap: 0.15rem; }
+    .nav-bar a { padding: 0.4rem 0.7rem; font-size: 12px; }
+  }
+  
+  @media (max-width: 768px) {
+    .hero { padding: 1.5rem 1.25rem; min-height: auto; }
+    .hero-main { margin: 2.5rem 0; }
+    section { padding: 3.5rem 1.25rem; }
+    .hero-bottom { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .status-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .chart-wrap { padding: 1.5rem 1rem; }
+    .conclusion { padding: 1.75rem 1.5rem; }
+    
+    .nav-bar { 
+      gap: 0.1rem; 
+      padding: 0.5rem; 
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-bar a { padding: 0.4rem 0.7rem; font-size: 11px; white-space: nowrap; flex-shrink: 0; }
+
+    /* Horizontal bar - smaller labels on mobile */
+    .hbar-row {
+      grid-template-columns: 95px 1fr 45px;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+    }
+    .hbar-row .hbar-label { font-size: 13px; }
+    .hbar-row .hbar-track { height: 22px; }
+    .hbar-row .hbar-value { font-size: 14px; }
+
+    /* Vertical bar */
+    .vbar-chart { height: 240px; gap: 0.35rem; }
+    .vbar-value { font-size: 11px; }
+    .vbar-label { font-size: 10px; }
+
+    /* Line chart */
+    .line-chart { height: 280px; }
+    .line-chart .axis-text { font-size: 10px; }
+    .line-chart .data-label { font-size: 11px; }
+
+    /* Hide table, show cards - already handled above with @media 900px */
+    .table-controls .search-box { min-width: 100%; margin-right: 0; margin-top: 0.5rem; }
+    
+    footer { padding: 2.5rem 1.25rem; }
+  }
+
+  /* Mobile cards */
+  .mc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .mc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .mc-name { font-size: 16px; font-weight: 600; color: var(--ink); }
+  .mc-total {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+    background: rgba(201, 169, 97, 0.1);
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .mc-years {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 4px;
+    margin-bottom: 0.75rem;
+  }
+  .mc-year { text-align: center; padding: 6px 2px; border-radius: 3px; font-size: 11px; font-weight: 500; }
+  .mc-year-label { font-size: 9px; color: var(--ink-dim); margin-bottom: 2px; display: block; }
+  .mc-status-line { display: flex; justify-content: flex-end; }
+  .mc-status-line .status { display: inline-block; text-align: center; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 3px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow, .hero-title, .hero-subtitle, .hero-stat {
+    animation: fadeUp 0.9s ease-out both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-title { animation-delay: 0.25s; }
+  .hero-subtitle { animation-delay: 0.4s; }
+  .hero-stat:nth-child(1) { animation-delay: 0.55s; }
+  .hero-stat:nth-child(2) { animation-delay: 0.65s; }
+  .hero-stat:nth-child(3) { animation-delay: 0.75s; }
+  .hero-stat:nth-child(4) { animation-delay: 0.85s; }
+
+  /* All content visible by default - no fade-in to avoid hidden content issues */
+  .reveal { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-top">
+    <span>ذا ستيج <span class="dot">·</span> تقرير شامل</span>
+    <span>مايو ٢٠٢٦</span>
+  </div>
+  <div class="hero-main">
+    <div class="hero-eyebrow">إدارة المجتمعات</div>
+    <h1 class="hero-title">تقرير <em>شامل</em></h1>
+    <p class="hero-subtitle">من بداية ذا ستيج ٢٠١٩ إلى ٢٠٢٦</p>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stat">
+      <div class="label">الإجمالي</div>
+      <div class="value">٧٨٥</div>
+      <div class="meta">لقاء عبر ثماني سنوات</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">المجتمعات</div>
+      <div class="value">٧٦</div>
+      <div class="meta">مجتمع عُقد لقاء واحد على الأقل</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">الذروة</div>
+      <div class="value">٢٠٢٢</div>
+      <div class="meta">١٦٨ لقاء في السنة</div>
+    </div>
+    <div class="hero-stat">
+      <div class="label">المنعطف</div>
+      <div class="value">−٣٦٪</div>
+      <div class="meta">تراجع من ٢٠٢٤ إلى ٢٠٢٥</div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <a onclick="scrollTo2('#sec-1')">المنحنى السنوي</a>
+  <a onclick="scrollTo2('#sec-2')">القاعدة</a>
+  <a onclick="scrollTo2('#sec-3')">الموسمية</a>
+  <a onclick="scrollTo2('#sec-4')">المجتمعات</a>
+  <a onclick="scrollTo2('#sec-5')">التحول</a>
+  <a onclick="scrollTo2('#sec-6')">الإيقاع</a>
+  <a onclick="scrollTo2('#sec-7')">الحالة</a>
+  <a onclick="scrollTo2('#sec-8')">الجدول</a>
+  <a onclick="scrollTo2('#sec-9')">الخلاصة</a>
+</nav>
+
+<!-- 1: المنحنى السنوي (Line chart) -->
+<section id="sec-1" class="reveal">
+  <div class="section-eyebrow"><span class="num">01</span><span>القسم الأول</span></div>
+  <h2 class="section-title">المنحنى <em>السنوي</em></h2>
+  <p class="section-lede">صعود متسارع لثلاث سنوات، استقرار في الذروة، ثم منعطف يكشف عن نفسه ببطء. هذا المنحنى يلخّص قصة ذا ستيج كاملة.</p>
+  
+  <div class="chart-wrap">
+    <svg class="line-chart" id="yearLineChart" viewBox="0 0 1000 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#C9A961" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#C9A961" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div class="chart-caption">يمثل العمود الأخير ٢٠٢٦ بيانات يناير إلى مايو فقط (٤٠ لقاء)</div>
+  </div>
+</section>
+
+<!-- 2: القاعدة (Vertical bars) -->
+<section id="sec-2" class="reveal">
+  <div class="section-eyebrow"><span class="num">02</span><span>القسم الثاني</span></div>
+  <h2 class="section-title">قاعدة <em>المجتمعات</em></h2>
+  <p class="section-lede">في عام ٢٠٢٣ بلغ تنوع ذا ستيج ذروته بـ ٤٧ مجتمعاً نشطاً. اليوم، نصف هذا العدد فقط.</p>
+  
+  <div class="chart-wrap">
+    <div class="vbar-chart" id="activeChart">
+      <div class="vbar-col muted" style="--height: 21%; --delay: 0s;"><div class="vbar-value">١٠</div><div class="vbar-bar"></div><div class="vbar-label">٢٠١٩</div></div>
+      <div class="vbar-col muted" style="--height: 32%; --delay: 0.1s;"><div class="vbar-value">١٥</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٠</div></div>
+      <div class="vbar-col" style="--height: 62%; --delay: 0.2s;"><div class="vbar-value">٢٩</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢١</div></div>
+      <div class="vbar-col" style="--height: 87%; --delay: 0.3s;"><div class="vbar-value">٤١</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٢</div></div>
+      <div class="vbar-col peak" style="--height: 100%; --delay: 0.4s;"><div class="vbar-value">٤٧</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٣</div></div>
+      <div class="vbar-col" style="--height: 87%; --delay: 0.5s;"><div class="vbar-value">٤١</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٤</div></div>
+      <div class="vbar-col muted" style="--height: 49%; --delay: 0.6s;"><div class="vbar-value">٢٣</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٥</div></div>
+      <div class="vbar-col muted" style="--height: 53%; --delay: 0.7s;"><div class="vbar-value">٢٥</div><div class="vbar-bar"></div><div class="vbar-label">٢٠٢٦*</div></div>
+    </div>
+    <div class="chart-caption">المجتمع النشط = أُقيم له لقاء واحد على الأقل خلال السنة</div>
+  </div>
+
+  <div class="pullquote">
+    <div class="text">٣٥ مجتمعاً <em>اختفى</em> بعد ٢٠٢٤، منهم العمالقة الذين بنوا الستيج</div>
+  </div>
+</section>
+
+<!-- 3: الموسمية (Vertical bars - months) -->
+<section id="sec-3" class="reveal">
+  <div class="section-eyebrow"><span class="num">03</span><span>القسم الثالث</span></div>
+  <h2 class="section-title">الموسمية <em>الشهرية</em></h2>
+  <p class="section-lede">أكتوبر يصعد كل عام، وأبريل يتراجع كل عام. الموسمية ليست صدفة، بل قانون يحكم التخطيط.</p>
+  
+  <div class="chart-wrap">
+    <div class="vbar-chart" id="seasonChart">
+      <div class="vbar-col" style="--height: 85%; --delay: 0s;"><div class="vbar-value">١٢.٢</div><div class="vbar-bar"></div><div class="vbar-label">يناير</div></div>
+      <div class="vbar-col" style="--height: 75%; --delay: 0.05s;"><div class="vbar-value">١٠.٨</div><div class="vbar-bar"></div><div class="vbar-label">فبراير</div></div>
+      <div class="vbar-col muted" style="--height: 63%; --delay: 0.1s;"><div class="vbar-value">٩.٠</div><div class="vbar-bar"></div><div class="vbar-label">مارس</div></div>
+      <div class="vbar-col danger" style="--height: 35%; --delay: 0.15s;"><div class="vbar-value">٥.٠</div><div class="vbar-bar"></div><div class="vbar-label">أبريل</div></div>
+      <div class="vbar-col" style="--height: 83%; --delay: 0.2s;"><div class="vbar-value">١٢.٠</div><div class="vbar-bar"></div><div class="vbar-label">مايو</div></div>
+      <div class="vbar-col" style="--height: 72%; --delay: 0.25s;"><div class="vbar-value">١٠.٤</div><div class="vbar-bar"></div><div class="vbar-label">يونيو</div></div>
+      <div class="vbar-col" style="--height: 74%; --delay: 0.3s;"><div class="vbar-value">١٠.٦</div><div class="vbar-bar"></div><div class="vbar-label">يوليو</div></div>
+      <div class="vbar-col peak" style="--height: 93%; --delay: 0.35s;"><div class="vbar-value">١٣.٤</div><div class="vbar-bar"></div><div class="vbar-label">أوقيست</div></div>
+      <div class="vbar-col" style="--height: 86%; --delay: 0.4s;"><div class="vbar-value">١٢.٤</div><div class="vbar-bar"></div><div class="vbar-label">سبتمبر</div></div>
+      <div class="vbar-col peak" style="--height: 100%; --delay: 0.45s;"><div class="vbar-value">١٤.٤</div><div class="vbar-bar"></div><div class="vbar-label">أكتوبر</div></div>
+      <div class="vbar-col" style="--height: 83%; --delay: 0.5s;"><div class="vbar-value">١٢.٠</div><div class="vbar-bar"></div><div class="vbar-label">نوفمبر</div></div>
+      <div class="vbar-col" style="--height: 81%; --delay: 0.55s;"><div class="vbar-value">١١.٦</div><div class="vbar-bar"></div><div class="vbar-label">ديسمبر</div></div>
+    </div>
+    <div class="chart-caption">متوسط اللقاءات لكل شهر عبر السنوات الناضجة (٢٠٢١-٢٠٢٥)</div>
+  </div>
+</section>
+
+<!-- 4: المجتمعات (Horizontal bars) -->
+<section id="sec-4" class="reveal">
+  <div class="section-eyebrow"><span class="num">04</span><span>القسم الرابع</span></div>
+  <h2 class="section-title">المجتمعات الأكثر <em>تفاعلاً</em></h2>
+  <p class="section-lede">شاي يقود التاريخ بـ ٤٣ لقاءً، لكن "مخرج" حقق ٣١ في سنتين فقط ما حققه آخرون في خمس.</p>
+  
+  <div class="chart-wrap" id="topPresenters">
+    <div class="hbar-row" style="--width: 100%; --delay: 0s;">
+      <div class="hbar-label">شاي</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٤٣</div>
+    </div>
+    <div class="hbar-row" style="--width: 86%; --delay: 0.08s;">
+      <div class="hbar-label">كود قراي</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٣٧</div>
+    </div>
+    <div class="hbar-row" style="--width: 72%; --delay: 0.16s;">
+      <div class="hbar-label">دائرة</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٣١</div>
+    </div>
+    <div class="hbar-row" style="--width: 72%; --delay: 0.24s;">
+      <div class="hbar-label">مخرج</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٣١</div>
+    </div>
+    <div class="hbar-row" style="--width: 63%; --delay: 0.32s;">
+      <div class="hbar-label">سيكولوجيا</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢٧</div>
+    </div>
+    <div class="hbar-row" style="--width: 60%; --delay: 0.4s;">
+      <div class="hbar-label">قراء</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢٦</div>
+    </div>
+    <div class="hbar-row" style="--width: 56%; --delay: 0.48s;">
+      <div class="hbar-label">أقاصيص</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢٤</div>
+    </div>
+    <div class="hbar-row" style="--width: 56%; --delay: 0.56s;">
+      <div class="hbar-label">قوائم</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢٤</div>
+    </div>
+    <div class="hbar-row" style="--width: 49%; --delay: 0.64s;">
+      <div class="hbar-label">شعبة ١١</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢١</div>
+    </div>
+    <div class="hbar-row" style="--width: 49%; --delay: 0.72s;">
+      <div class="hbar-label">لمة جرافكيين</div><div class="hbar-track"><div class="hbar-fill"></div></div><div class="hbar-value">٢١</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5: التحول -->
+<section id="sec-5" class="reveal">
+  <div class="section-eyebrow"><span class="num">05</span><span>القسم الخامس</span></div>
+  <h2 class="section-title">المجتمعات <em>المتصدرة</em></h2>
+  <p class="section-lede">عام ٢٠٢٥ لم يكن استمراراً لـ ٢٠٢٤، بل نسخة جديدة كلياً. المجتمعات المتصدرة تغيرت تماماً، وصعد "مخرج" من العدم إلى الذروة.</p>
+  
+  <div class="grid-2">
+    <div class="peak-card">
+      <div class="label">قمة ٢٠٢٤</div>
+      <div class="peak-list">
+        <div class="item"><span class="name">كود قراي</span><span class="num">١٢</span></div>
+        <div class="item"><span class="name">مهارة</span><span class="num">١٠</span></div>
+        <div class="item"><span class="name">منظومة</span><span class="num">١٠</span></div>
+        <div class="item"><span class="name">سيكولوجيا</span><span class="num">٩</span></div>
+        <div class="item"><span class="name">مازورة</span><span class="num">٩</span></div>
+        <div class="item"><span class="name">شاي</span><span class="num">٨</span></div>
+      </div>
+    </div>
+    <div class="peak-card">
+      <div class="label">قمة ٢٠٢٥</div>
+      <div class="peak-list">
+        <div class="item"><span class="name highlight">مخرج</span><span class="num">٢٥</span></div>
+        <div class="item"><span class="name">الصالون</span><span class="num">٨</span></div>
+        <div class="item"><span class="name">المحتوى</span><span class="num">٨</span></div>
+        <div class="item"><span class="name">بودكاست لايف</span><span class="num">٥</span></div>
+        <div class="item"><span class="name">مازورة</span><span class="num">٥</span></div>
+        <div class="item"><span class="name">نقطة ولاء</span><span class="num">٥</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6: إيقاع 2025 (Vertical bars) -->
+<section id="sec-6" class="reveal">
+  <div class="section-eyebrow"><span class="num">06</span><span>القسم السادس</span></div>
+  <h2 class="section-title">إيقاع <em>٢٠٢٥</em></h2>
+  <p class="section-lede">شهر بلقاء واحد، يتبعه شهر بـ ١٥ لقاءً. التذبذب الحاد يكشف أن المشكلة ليست في الفكرة، بل في الانتظام التنفيذي.</p>
+  
+  <div class="chart-wrap">
+    <div class="vbar-chart" id="rhythmChart">
+      <div class="vbar-col" style="--height: 67%; --delay: 0s;"><div class="vbar-value">١٠</div><div class="vbar-bar"></div><div class="vbar-label">يناير</div></div>
+      <div class="vbar-col peak" style="--height: 80%; --delay: 0.05s;"><div class="vbar-value">١٢</div><div class="vbar-bar"></div><div class="vbar-label">فبراير</div></div>
+      <div class="vbar-col danger" style="--height: 7%; --delay: 0.1s;"><div class="vbar-value">١</div><div class="vbar-bar"></div><div class="vbar-label">مارس</div></div>
+      <div class="vbar-col muted" style="--height: 47%; --delay: 0.15s;"><div class="vbar-value">٧</div><div class="vbar-bar"></div><div class="vbar-label">أبريل</div></div>
+      <div class="vbar-col peak" style="--height: 100%; --delay: 0.2s;"><div class="vbar-value">١٥</div><div class="vbar-bar"></div><div class="vbar-label">مايو</div></div>
+      <div class="vbar-col danger" style="--height: 20%; --delay: 0.25s;"><div class="vbar-value">٣</div><div class="vbar-bar"></div><div class="vbar-label">يونيو</div></div>
+      <div class="vbar-col" style="--height: 67%; --delay: 0.3s;"><div class="vbar-value">١٠</div><div class="vbar-bar"></div><div class="vbar-label">يوليو</div></div>
+      <div class="vbar-col" style="--height: 53%; --delay: 0.35s;"><div class="vbar-value">٨</div><div class="vbar-bar"></div><div class="vbar-label">أوقيست</div></div>
+      <div class="vbar-col" style="--height: 73%; --delay: 0.4s;"><div class="vbar-value">١١</div><div class="vbar-bar"></div><div class="vbar-label">سبتمبر</div></div>
+      <div class="vbar-col" style="--height: 60%; --delay: 0.45s;"><div class="vbar-value">٩</div><div class="vbar-bar"></div><div class="vbar-label">أكتوبر</div></div>
+      <div class="vbar-col muted" style="--height: 33%; --delay: 0.5s;"><div class="vbar-value">٥</div><div class="vbar-bar"></div><div class="vbar-label">نوفمبر</div></div>
+      <div class="vbar-col muted" style="--height: 33%; --delay: 0.55s;"><div class="vbar-value">٥</div><div class="vbar-bar"></div><div class="vbar-label">ديسمبر</div></div>
+    </div>
+    <div class="chart-caption">اللقاءات الشهرية في ٢٠٢٥ — قمم وقيعان بفروقات حادة</div>
+  </div>
+</section>
+
+<!-- 7: الحالة -->
+<section id="sec-7" class="reveal">
+  <div class="section-eyebrow"><span class="num">07</span><span>القسم السابع</span></div>
+  <h2 class="section-title">حالة <em>اليوم</em></h2>
+  <p class="section-lede">٢٣ مجتمعاً يصمد في ٢٠٢٦، و٤٨ مجتمعاً في الذاكرة.</p>
+  <div class="status-grid">
+    <div class="status-cell green"><div class="label">نشط ٢٠٢٦</div><div class="num">٢٣</div><div class="meta">مجتمع لا يزال يُعقد</div></div>
+    <div class="status-cell blue"><div class="label">نشط ٢٠٢٥</div><div class="num">٥</div><div class="meta">آخر ظهور السنة الماضية</div></div>
+    <div class="status-cell amber"><div class="label">متوقف حديثاً</div><div class="num">١٨</div><div class="meta">غاب منذ ٢٠٢٤</div></div>
+    <div class="status-cell gray"><div class="label">متوقف قديم</div><div class="num">٣٠</div><div class="meta">انتهى قبل ٢٠٢٤</div></div>
+  </div>
+</section>
+
+<!-- 8: الجدول -->
+<section id="sec-8" class="reveal">
+  <div class="section-eyebrow"><span class="num">08</span><span>القسم الثامن</span></div>
+  <h2 class="section-title">السجل <em>الكامل</em></h2>
+  <p class="section-lede">٧٦ مجتمعاً، ٨ سنوات، كل خلية تحكي قصة. ابحث، صنّف، استكشف.</p>
+  <div class="table-controls">
+    <button class="filter-btn active" data-filter="all">الكل</button>
+    <button class="filter-btn" data-filter="green">نشط ٢٠٢٦</button>
+    <button class="filter-btn" data-filter="blue">نشط ٢٠٢٥</button>
+    <button class="filter-btn" data-filter="amber">متوقف حديثاً</button>
+    <button class="filter-btn" data-filter="gray">متوقف قديم</button>
+    <input type="text" id="searchBox" class="search-box" placeholder="ابحث عن مجتمع...">
+  </div>
+  <div class="product-table">
+    <div class="table-head">
+      <div>المجتمع</div><div>٢٠١٩</div><div>٢٠٢٠</div><div>٢٠٢١</div><div>٢٠٢٢</div><div>٢٠٢٣</div><div>٢٠٢٤</div><div>٢٠٢٥</div><div>٢٠٢٦</div><div>الإجمالي</div><div>الحالة</div>
+    </div>
+    <div class="table-body" id="tableBody"></div>
+  </div>
+  <div class="mobile-cards" id="mobileCards"></div>
+</section>
+
+<!-- 9: الخلاصة -->
+<section id="sec-9" class="reveal">
+  <div class="section-eyebrow"><span class="num">09</span><span>الخاتمة</span></div>
+  <h2 class="section-title">الخلاصة <em>الاستراتيجية</em></h2>
+  <div class="conclusion">
+    <p><strong>ذا ستيج لم تخسر جمهورها</strong>، بل خسرت محفظتها من المجتمعات. ٣٥ مجتمعاً اختفى بعد ٢٠٢٤، منها عمالقة مثل كود قراي وقراء وشعبة ١١.</p>
+    <p><strong>ضخ المجتمعات الجديدة شبه توقف.</strong> من ١٧ مجتمعاً جديداً في ٢٠٢١، إلى مجتمعين فقط في ٢٠٢٥.</p>
+    <p><strong>"مخرج" أثبت أن الصيغة لا تزال قابلة للنجاح بقوة</strong>، بـ ٣١ لقاءً في سنتين، لكن قصته لم تتكرر مع مجتمعات أخرى.</p>
+    <p><strong>المشكلة تشغيلية لا استراتيجية.</strong> تذبذب ٢٠٢٥ الحاد، من لقاء واحد في مارس إلى ١٥ في مايو، يكشف ضعف انتظام التنفيذ، لا غياب الفكرة.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="mark">ذا ستيج</div>
+  <div class="meta">تقرير شامل · مايو ٢٠٢٦ · ٧٨٥ لقاءً · ٧٦ مجتمعاً</div>
+</footer>
+
+<script>
+function scrollTo2(sel) {
+  const el = document.querySelector(sel);
+  const navHeight = document.querySelector('.nav-bar').offsetHeight;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+// Build line chart for yearly trend
+function buildLineChart() {
+  const svg = document.getElementById('yearLineChart');
+  const data = [
+    {year: '٢٠١٩', value: 24, partial: false},
+    {year: '٢٠٢٠', value: 51, partial: false},
+    {year: '٢٠٢١', value: 100, partial: false},
+    {year: '٢٠٢٢', value: 168, partial: false},
+    {year: '٢٠٢٣', value: 155, partial: false},
+    {year: '٢٠٢٤', value: 150, partial: false},
+    {year: '٢٠٢٥', value: 96, partial: false},
+    {year: '٢٠٢٦*', value: 40, partial: true}
+  ];
+  // Reverse for RTL: rightmost = 2019, leftmost = 2026
+  const reversed = [...data].reverse();
+  
+  const W = 1000, H = 320;
+  const PAD_L = 50, PAD_R = 50, PAD_T = 30, PAD_B = 60;
+  const chartW = W - PAD_L - PAD_R;
+  const chartH = H - PAD_T - PAD_B;
+  const maxVal = 180;
+  
+  const xStep = chartW / (reversed.length - 1);
+  // In RTL: index 0 is at right (W - PAD_R), increases towards left
+  const xFor = (i) => W - PAD_R - (i * xStep);
+  const yFor = (v) => PAD_T + chartH - (v / maxVal) * chartH;
+  
+  let html = '';
+  
+  // Y-axis grid lines & labels
+  const yTicks = [0, 30, 60, 90, 120, 150, 180];
+  yTicks.forEach(t => {
+    const y = yFor(t);
+    html += `<line class="grid-line" x1="${PAD_L}" y1="${y}" x2="${W - PAD_R}" y2="${y}"/>`;
+    html += `<text class="axis-text" x="${PAD_L - 8}" y="${y + 4}" text-anchor="end">${arabicNum(t)}</text>`;
+  });
+  
+  // Build line path
+  let pathD = '';
+  let areaD = '';
+  reversed.forEach((d, i) => {
+    const x = xFor(i);
+    const y = yFor(d.value);
+    if (i === 0) {
+      pathD += `M ${x} ${y}`;
+      areaD += `M ${x} ${PAD_T + chartH} L ${x} ${y}`;
+    } else {
+      // Smooth curve via cubic bezier
+      const prev = reversed[i-1];
+      const px = xFor(i-1);
+      const py = yFor(prev.value);
+      const cx1 = px - (px - x) * 0.5;
+      const cx2 = x + (px - x) * 0.5;
+      pathD += ` C ${cx1} ${py}, ${cx2} ${y}, ${x} ${y}`;
+      areaD += ` C ${cx1} ${py}, ${cx2} ${y}, ${x} ${y}`;
+    }
+  });
+  areaD += ` L ${xFor(reversed.length - 1)} ${PAD_T + chartH} Z`;
+  
+  html += `<path class="area-fill" d="${areaD}"/>`;
+  html += `<path class="line-path" d="${pathD}"/>`;
+  
+  // Data points + labels + x-axis labels
+  reversed.forEach((d, i) => {
+    const x = xFor(i);
+    const y = yFor(d.value);
+    const cls = d.partial ? 'data-point partial' : 'data-point';
+    const delay = 1.5 + i * 0.1;
+    html += `<circle class="${cls}" cx="${x}" cy="${y}" r="6" style="animation-delay: ${delay}s"/>`;
+    html += `<text class="data-label" x="${x}" y="${y - 14}" style="animation-delay: ${delay + 0.2}s">${arabicNum(d.value)}</text>`;
+    html += `<text class="axis-text" x="${x}" y="${H - PAD_B + 25}" text-anchor="middle">${d.year}</text>`;
+  });
+  
+  svg.insertAdjacentHTML('beforeend', html);
+}
+
+function arabicNum(n) {
+  return n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+}
+
+// Animate bars immediately on load (no scroll-trigger dependency)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.hbar-row').forEach(row => row.classList.add('show'));
+    document.querySelectorAll('.vbar-col').forEach(col => col.classList.add('show'));
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 100);
+});
+
+buildLineChart();
+
+// Product table data
+const productsData = [{"product":"شاي","y":[3,4,0,12,11,8,4,1],"total":43,"status":"نشط ٢٠٢٦","color":"green"},{"product":"كود قراي","y":[3,0,8,6,8,12,0,0],"total":37,"status":"متوقف حديثاً","color":"amber"},{"product":"دائرة","y":[2,5,5,5,8,2,3,1],"total":31,"status":"نشط ٢٠٢٦","color":"green"},{"product":"مخرج","y":[0,0,0,0,0,1,25,5],"total":31,"status":"نشط ٢٠٢٦","color":"green"},{"product":"سيكولوجيا","y":[0,2,4,0,5,9,3,4],"total":27,"status":"نشط ٢٠٢٦","color":"green"},{"product":"قراء","y":[0,0,5,10,8,3,0,0],"total":26,"status":"متوقف حديثاً","color":"amber"},{"product":"أقاصيص","y":[2,6,4,4,1,4,2,1],"total":24,"status":"نشط ٢٠٢٦","color":"green"},{"product":"قوائم","y":[0,0,6,5,6,3,3,1],"total":24,"status":"نشط ٢٠٢٦","color":"green"},{"product":"شعبة ١١","y":[3,2,2,4,4,6,0,0],"total":21,"status":"متوقف حديثاً","color":"amber"},{"product":"لمة جرافكيين","y":[3,5,6,2,4,0,0,1],"total":21,"status":"نشط ٢٠٢٦","color":"green"},{"product":"مازورة","y":[0,0,0,0,5,9,5,1],"total":20,"status":"نشط ٢٠٢٦","color":"green"},{"product":"عنوان","y":[0,1,5,6,3,3,0,0],"total":18,"status":"متوقف حديثاً","color":"amber"},{"product":"خمسة وربع","y":[0,1,5,8,3,0,0,0],"total":17,"status":"متوقف قديم","color":"gray"},{"product":"منظومة","y":[0,0,0,0,4,10,2,1],"total":17,"status":"نشط ٢٠٢٦","color":"green"},{"product":"تكوين","y":[2,4,3,6,0,1,0,0],"total":16,"status":"متوقف حديثاً","color":"amber"},{"product":"احتفاء","y":[0,0,0,8,3,1,4,0],"total":16,"status":"نشط ٢٠٢٥","color":"blue"},{"product":"ناظرني","y":[3,5,5,1,1,0,0,0],"total":15,"status":"متوقف قديم","color":"gray"},{"product":"الصالون","y":[0,0,0,0,2,3,8,1],"total":14,"status":"نشط ٢٠٢٦","color":"green"},{"product":"ماركتيت","y":[0,0,0,0,0,8,3,3],"total":14,"status":"نشط ٢٠٢٦","color":"green"},{"product":"منتج","y":[0,0,0,6,3,4,0,0],"total":13,"status":"متوقف حديثاً","color":"amber"},{"product":"بودكاست لايف","y":[0,0,0,1,4,2,5,1],"total":13,"status":"نشط ٢٠٢٦","color":"green"},{"product":"كاريزما","y":[0,5,4,2,1,0,0,0],"total":12,"status":"متوقف قديم","color":"gray"},{"product":"جاك العلم","y":[0,0,4,4,1,2,1,0],"total":12,"status":"نشط ٢٠٢٥","color":"blue"},{"product":"مسار","y":[0,0,0,6,3,2,1,0],"total":12,"status":"نشط ٢٠٢٥","color":"blue"},{"product":"منور","y":[0,0,5,4,2,0,0,0],"total":11,"status":"متوقف قديم","color":"gray"},{"product":"ميديا لاب","y":[0,0,0,4,3,2,2,0],"total":11,"status":"نشط ٢٠٢٥","color":"blue"},{"product":"أندية","y":[0,0,0,0,4,4,3,0],"total":11,"status":"نشط ٢٠٢٥","color":"blue"},{"product":"مهارة","y":[0,0,0,0,0,10,0,1],"total":11,"status":"نشط ٢٠٢٦","color":"green"},{"product":"المحتوى","y":[0,0,0,0,0,1,8,2],"total":11,"status":"نشط ٢٠٢٦","color":"green"},{"product":"آل ذا ستيج","y":[0,2,3,4,1,0,0,0],"total":10,"status":"متوقف قديم","color":"gray"},{"product":"راوند زيرو","y":[0,0,5,3,2,0,0,0],"total":10,"status":"متوقف قديم","color":"gray"},{"product":"سيولة","y":[0,0,5,4,0,1,0,0],"total":10,"status":"متوقف حديثاً","color":"amber"},{"product":"جولات","y":[0,0,0,2,7,1,0,0],"total":10,"status":"متوقف حديثاً","color":"amber"},{"product":"عقار","y":[0,0,0,0,5,5,0,0],"total":10,"status":"متوقف حديثاً","color":"amber"},{"product":"تواصل","y":[0,0,0,0,1,5,2,2],"total":10,"status":"نشط ٢٠٢٦","color":"green"},{"product":"القطاع الرابح","y":[0,0,0,0,2,4,3,1],"total":10,"status":"نشط ٢٠٢٦","color":"green"},{"product":"بارتير","y":[0,4,0,3,2,0,0,0],"total":9,"status":"متوقف قديم","color":"gray"},{"product":"لسان","y":[0,0,1,4,3,0,0,0],"total":8,"status":"متوقف قديم","color":"gray"},{"product":"ولد السوق","y":[0,0,1,7,0,0,0,0],"total":8,"status":"متوقف قديم","color":"gray"},{"product":"هوست","y":[2,0,0,0,3,2,0,0],"total":7,"status":"متوقف حديثاً","color":"amber"},{"product":"أوبريشن","y":[0,0,2,4,0,0,0,1],"total":7,"status":"نشط ٢٠٢٦","color":"green"},{"product":"أجندة","y":[0,0,0,4,3,0,0,0],"total":7,"status":"متوقف قديم","color":"gray"},{"product":"بارتنر","y":[0,0,0,0,0,3,1,3],"total":7,"status":"نشط ٢٠٢٦","color":"green"},{"product":"تارقت","y":[0,0,1,3,2,0,0,0],"total":6,"status":"متوقف قديم","color":"gray"},{"product":"إقدام","y":[0,0,3,3,0,0,0,0],"total":6,"status":"متوقف قديم","color":"gray"},{"product":"سي اكس","y":[0,0,0,0,4,2,0,0],"total":6,"status":"متوقف حديثاً","color":"amber"},{"product":"البيئة","y":[0,0,0,0,4,2,0,0],"total":6,"status":"متوقف حديثاً","color":"amber"},{"product":"نقطة ولاء","y":[0,0,0,0,0,0,5,1],"total":6,"status":"نشط ٢٠٢٦","color":"green"},{"product":"تحديات ذا ستيج","y":[1,4,0,0,0,0,0,0],"total":5,"status":"متوقف قديم","color":"gray"},{"product":"مينا","y":[0,0,1,4,0,0,0,0],"total":5,"status":"متوقف قديم","color":"gray"},{"product":"سكتش","y":[0,0,0,5,0,0,0,0],"total":5,"status":"متوقف قديم","color":"gray"},{"product":"ذات","y":[0,0,0,3,2,0,0,0],"total":5,"status":"متوقف قديم","color":"gray"},{"product":"وريد","y":[0,0,0,3,2,0,0,0],"total":5,"status":"متوقف قديم","color":"gray"},{"product":"سكان","y":[0,0,0,0,3,2,0,0],"total":5,"status":"متوقف حديثاً","color":"amber"},{"product":"وراش","y":[0,0,0,0,0,4,0,1],"total":5,"status":"نشط ٢٠٢٦","color":"green"},{"product":"متنفس","y":[0,0,2,2,0,0,0,0],"total":4,"status":"متوقف قديم","color":"gray"},{"product":"عصف","y":[0,0,0,2,0,2,0,0],"total":4,"status":"متوقف حديثاً","color":"amber"},{"product":"ميدالية","y":[0,0,0,0,2,2,0,0],"total":4,"status":"متوقف حديثاً","color":"amber"},{"product":"ناكاما","y":[0,0,1,0,2,0,0,0],"total":3,"status":"متوقف قديم","color":"gray"},{"product":"فنتك","y":[0,0,1,0,2,0,0,0],"total":3,"status":"متوقف قديم","color":"gray"},{"product":"ستة وأربعين","y":[0,0,0,1,2,0,0,0],"total":3,"status":"متوقف قديم","color":"gray"},{"product":"مستقبل","y":[0,0,0,0,3,0,0,0],"total":3,"status":"متوقف قديم","color":"gray"},{"product":"أرينا","y":[0,0,0,0,0,1,1,1],"total":3,"status":"نشط ٢٠٢٦","color":"green"},{"product":"حقوق","y":[0,0,0,0,0,0,2,1],"total":3,"status":"نشط ٢٠٢٦","color":"green"},{"product":"صناع","y":[0,0,2,0,0,0,0,0],"total":2,"status":"متوقف قديم","color":"gray"},{"product":"اللقاء المفتوح","y":[0,0,0,1,1,0,0,0],"total":2,"status":"متوقف قديم","color":"gray"},{"product":"سالفة","y":[0,0,0,0,0,2,0,0],"total":2,"status":"متوقف حديثاً","color":"amber"},{"product":"أبديت","y":[0,0,0,0,1,1,0,0],"total":2,"status":"متوقف حديثاً","color":"amber"},{"product":"سوشال فارما","y":[0,0,0,0,0,0,0,2],"total":2,"status":"نشط ٢٠٢٦","color":"green"},{"product":"نيهاو","y":[0,0,0,0,0,0,0,2],"total":2,"status":"نشط ٢٠٢٦","color":"green"},{"product":"ع اللمة","y":[0,1,0,0,0,0,0,0],"total":1,"status":"متوقف قديم","color":"gray"},{"product":"الخدمات البريدية","y":[0,0,1,0,0,0,0,0],"total":1,"status":"متوقف قديم","color":"gray"},{"product":"هاكونا ماتاتا","y":[0,0,0,1,0,0,0,0],"total":1,"status":"متوقف قديم","color":"gray"},{"product":"Hello world","y":[0,0,0,1,0,0,0,0],"total":1,"status":"متوقف قديم","color":"gray"},{"product":"سرد","y":[0,0,0,0,0,1,0,0],"total":1,"status":"متوقف حديثاً","color":"amber"},{"product":"عبداللطيف واصحابه","y":[0,0,0,0,0,1,2,1],"total":4,"status":"نشط ٢٠٢٦","color":"green"}];
+
+const yearLabels = ['١٩','٢٠','٢١','٢٢','٢٣','٢٤','٢٥','٢٦'];
+
+function cellStyle(v) {
+  if (!v) return { bg: 'transparent', color: 'var(--ink-dim)', cls: 'empty' };
+  if (v >= 12) return { bg: '#C9A961', color: '#0A0A0A', cls: '' };
+  if (v >= 8) return { bg: 'rgba(201, 169, 97, 0.6)', color: '#0A0A0A', cls: '' };
+  if (v >= 5) return { bg: 'rgba(201, 169, 97, 0.3)', color: '#F5F1E8', cls: '' };
+  if (v >= 3) return { bg: 'rgba(201, 169, 97, 0.18)', color: '#F5F1E8', cls: '' };
+  return { bg: 'rgba(201, 169, 97, 0.08)', color: '#F5F1E8', cls: '' };
+}
+
+let currentFilter = 'all';
+let searchTerm = '';
+
+function renderTable() {
+  const body = document.getElementById('tableBody');
+  const cards = document.getElementById('mobileCards');
+  body.innerHTML = '';
+  cards.innerHTML = '';
+  
+  productsData
+    .filter(p => currentFilter === 'all' || p.color === currentFilter)
+    .filter(p => p.product.includes(searchTerm))
+    .forEach(p => {
+      const row = document.createElement('div');
+      row.className = 'table-row';
+      let html = `<div class="name">${p.product}</div>`;
+      p.y.forEach(v => {
+        const s = cellStyle(v);
+        html += `<div class="cell ${s.cls}" style="background: ${s.bg}; color: ${s.color};">${v ? arabicNum(v) : '·'}</div>`;
+      });
+      html += `<div class="total">${arabicNum(p.total)}</div>`;
+      html += `<div class="status ${p.color}">${p.status}</div>`;
+      row.innerHTML = html;
+      body.appendChild(row);
+      
+      const card = document.createElement('div');
+      card.className = 'mc-card';
+      let yearsHtml = '';
+      p.y.forEach((v, idx) => {
+        const s = cellStyle(v);
+        yearsHtml += `<div><span class="mc-year-label">${yearLabels[idx]}</span><div class="mc-year" style="background: ${s.bg}; color: ${s.color};">${v ? arabicNum(v) : '·'}</div></div>`;
+      });
+      card.innerHTML = `<div class="mc-header"><div class="mc-name">${p.product}</div><div class="mc-total">${arabicNum(p.total)} لقاء</div></div><div class="mc-years">${yearsHtml}</div><div class="mc-status-line"><span class="status ${p.color}">${p.status}</span></div>`;
+      cards.appendChild(card);
+    });
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    renderTable();
+  });
+});
+document.getElementById('searchBox').addEventListener('input', (e) => {
+  searchTerm = e.target.value.trim();
+  renderTable();
+});
+
+// Ensure table renders after DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderTable);
+} else {
+  renderTable();
+}
+</script>
+
+</body>
+</html>
